@@ -1,5 +1,4 @@
 //Create a 'close' button and append it to each list item
-import AddCheckedClass from "./modules/AddCheckedClass.js";
 
 const myNodelist = document.querySelectorAll("LI");
 let i;
@@ -24,7 +23,11 @@ for (i = 0; i < close.length; i++) {
 
 // Add a 'checked' symbol when clicking on a list name
 const list = document.querySelector('ul');
-list.addEventListener('click', (ev) => AddCheckedClass(ev));
+list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'li') {
+        ev.target.classList.toggle("checked");
+    }
+}, true);
 
 
 // Create a new list item when clicking on the "Add" button
